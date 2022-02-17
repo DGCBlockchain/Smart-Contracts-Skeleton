@@ -1,5 +1,4 @@
 name: Coverage
-
 on:
   pull_request:
 
@@ -28,6 +27,9 @@ jobs:
 
       - name: Run covergae
         run: npm run coverage
-  #       env:
-  #         NODE_OPTIONS: --max_old_space_size=4096
-  #     - uses: codecov/codecov-action@v2
+        env:
+          NODE_OPTIONS: --max_old_space_size=4096
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{secrets.CODECOV_TOKEN}}
+          version: "v0.1.15"
